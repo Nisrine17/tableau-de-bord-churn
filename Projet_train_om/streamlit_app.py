@@ -30,7 +30,7 @@ st.set_page_config(
 # ============================================
 @st.cache_data
 def load_data():
-    df = pd.read_csv('sample_data.csv', sep=';')
+    df = pd.read_csv('Projet_train_om/sample_data.csv', sep=';')
     
     # Nettoyage
     df['typetransaction'] = df['typetransaction'].str.upper().str.strip()
