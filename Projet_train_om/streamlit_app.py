@@ -10,7 +10,6 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 import joblib
-import os
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import LabelEncoder
 import warnings
@@ -54,14 +53,9 @@ def load_data():
 
 @st.cache_resource
 def load_model():
-    # Vérifier si le modèle existe
-    if os.path.exists('modele_churn.pkl'):
-        try:
-            return joblib.load('modele_churn.pkl')
-        except:
-            return None
-    else:
-        # Si le modèle n'existe pas, on retourne None
+    try:
+        return joblib.load('modele_churn.pkl')
+    except:
         return None
 
 # Chargement
